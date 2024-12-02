@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+/* app.css */
+
+/* Ensure a global box-sizing rule */
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Flexbox container for the posts */
+.flex-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center posts in the container */
 }
 
-.App-link {
-  color: #61dafb;
+/* Styling for each post box */
+.square {
+  background-color: #f4f4f4;  /* Light gray background */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  cursor: pointer;
+  min-width: 250px;  /* Minimum width */
+  max-width: 350px;  /* Maximum width */
+  height: auto;      /* Adjust height based on content */
+  padding: 10px;     /* Internal padding for spacing */
+  box-sizing: border-box; /* Include padding in element’s total width/height */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Image inside the post */
+.square img {
+  width: 100%;      /* Take up the full width of the box */
+  height: auto;     /* Maintain aspect ratio */
+  display: block;   /* Remove extra space below the image */
+}
+
+/* Caption section inside the post */
+.square .caption {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* Hover effect for each post */
+.square:hover {
+  transform: scale(1.05);  /* Slight zoom effect on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+  background-color: #e1e1e1; /* Slightly darker background */
+}
+
+/* Media query for responsive layout */
+@media (max-width: 768px) {
+  .square {
+    min-width: 200px;  /* Adjust minimum width for smaller screens */
+    max-width: 300px;  /* Adjust maximum width for smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 480px) {
+  .square {
+    min-width: 150px;  /* Even smaller boxes on very small screens */
+    max-width: 250px;
   }
 }
